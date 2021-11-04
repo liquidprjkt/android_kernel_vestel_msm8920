@@ -190,11 +190,6 @@ static int fts_ctpm_get_i_file(struct i2c_client *client, int fw_valid)
 		ret = -EIO;
 		break;
 	}
-#else
-	/* (FTS_GET_VENDOR_ID_NUM == 0) */
-	g_fw_file = CTPM_FW;
-	g_fw_len = fts_getsize(FW_SIZE);
-	FTS_DEBUG("[UPGRADE]FW FILE:CTPM_FW, SIZE:%x", g_fw_len);
 #endif
 
 	return ret;
@@ -223,7 +218,7 @@ static int fts_ctpm_get_app_bin_file_ver(struct i2c_client *client,
 	}
 
 	if (fw->size < APP_FILE_MIN_SIZE || fw->size > APP_FILE_MAX_SIZE)
-		FTS_ERROR("[UPGRADE]: FW length(%x) error", fw->size);
+		FTS_ERROR("[UPGRADE]: FW length(%zx) error", fw->size);
 	else
 		fw_ver = fw->data[APP_FILE_VER_MAPPING];
 
