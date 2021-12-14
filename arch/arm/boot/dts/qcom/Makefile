@@ -1,3 +1,6 @@
+ifneq ($(CONFIG_DTB_TEOS),)
+dtb-y += msm8920-teos.dtb
+else
 dtb-$(CONFIG_ARCH_MSM8996) += msm8996-v2-pmi8994-mtp.dtb \
 	msm8996-v2-pmi8994-pmk8001-mtp.dtb \
 	msm8996-v2-pmi8994-pm8004-mtp.dtb \
@@ -222,7 +225,8 @@ dtb-$(CONFIG_ARCH_MSM8920) += msm8920-pmi8937-cdp.dtb \
 	msm8920-pmi8937-rcm.dtb \
 	msm8920-pmi8950-rcm.dtb \
 	msm8920-pmi8940-qrd-sku7.dtb \
-	msm8920-pmi8950-ext-codec-cdp.dtb
+	msm8920-pmi8950-ext-codec-cdp.dtb \
+	msm8920-teos.dtb
 
 dtb-$(CONFIG_ARCH_MSM8940) += msm8940-pmi8937-cdp.dtb \
 	msm8940-pmi8937-mtp.dtb \
@@ -346,6 +350,8 @@ dtb-$(CONFIG_ARCH_MSM8909) += msm8909-pm8916-mtp.dtb \
 	msm8909-1gb-cdp.dtb \
 	apq8009-ext-codec-dragon.dtb \
 	apq8009-dragon.dtb
+endif
+
 
 ifeq ($(CONFIG_ARM64),y)
 always          := $(dtb-y)

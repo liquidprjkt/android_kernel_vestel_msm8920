@@ -1017,6 +1017,13 @@ config BUILD_ARM64_APPENDED_DTB_IMAGE_NAMES
 	  Space separated list of names of dtbs to append when
 	  building a concatenated Image.gz-dtb
 
+config DTB_TEOS
+	bool "Only build DTB for MSM8920-PMI8950 MTP TEOS platform"
+	depends on OF
+	help
+	  With this option, Kbuild will only build the dtb for the
+	  Qualcomm Technologies, Inc. MSM8920-PMI8950 MTP TEOS platform
+
 choice
 	prompt "Kernel compression method"
 	default BUILD_ARM64_KERNEL_COMPRESSION_GZIP
